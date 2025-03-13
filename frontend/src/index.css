@@ -1,0 +1,302 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+:root{
+  --navy: #1E0342;
+  --blue: #0E46A3;
+  --teal: #9AC8CD;
+  --sea: #E1F7F5;
+  --font-button: 18px
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+body{
+  width: 100vw;
+  height:100vh;
+  background-color: var(--navy);
+}
+#Navbar{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+.navButton{
+  border: none;
+  background-color: var(--navy);
+  color:var(--teal);
+  height: 30px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: var(--font-button);
+  border-radius: 20px;
+  padding: 0 15px 0 15px;
+  transition-duration: 0.2s;
+}
+.navButton:hover{
+  cursor: pointer;
+  background-color: var(--teal);
+  color: var(--navy);
+}
+
+.content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width:200px;
+  height:300px;
+  background-color: var(--blue);
+  border-radius: 10px;
+}
+.form-input{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.button{
+  border-radius: 3px;
+  border: none;
+  margin-top: 15px;
+  height:30px;
+  width:100px;
+  font-weight: bold;
+}
+.button:hover{
+  cursor: pointer;
+  outline: 3px solid black;
+}
+.ViewOffers{
+  width: 100%;
+  height: 100%;
+  background-color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bar{
+  width: 90%;
+  height:50px;
+  background-color: var(--blue);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  color: var(--sea)
+}
+.tab{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.offer{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  color: var(--navy)
+}
+/* Resetowanie domyślnych stylów dla tabeli */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Stylizacja nagłówka tabeli */
+th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Stylizacja komórek tabeli */
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: var(--sea);
+}
+
+/* Stylizacja wierszy tabeli */
+
+
+/* Stylizacja komórki nagłówka */
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--teal);
+  color: var(--blue);
+}
+
+/* Stylizacja wiersza, gdy najedziemy na niego myszką */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Stylizacja każdego elementu listy */
+li {
+  display: flex;
+  justify-content: space-around;
+  width: 700px;
+  padding: 10px;
+  background-color: var(--teal);
+  color: var(--blue);
+}
+
+/* Stylizacja spanów wewnątrz elementu listy */
+li span {
+  margin-right: 10px;
+}
+
+/* Stylizacja ostatniego elementu listy */
+li:last-child {
+  border-bottom: none;
+}
+
+.MakeOffer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.MakeOffer input[type="number"],
+select {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.MakeOffer button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.MakeOffer button:hover {
+  background-color: #0056b3;
+}
+
+.view-exchange-history-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.select-container {
+  margin-bottom: 15px;
+}
+
+select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+canvas {
+  width: 100%;
+  height: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.container h2 {
+  color: #333;
+}
+
+.container form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.container button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #218838;
+}
+
+.container p {
+  color: red;
+}
+
+.container a {
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .message {
+  color: red;
+  margin-top: 10px;
+}
+.wallet{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+.text{
+  background-color: var(--teal);
+}
