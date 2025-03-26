@@ -1,123 +1,135 @@
-# Dokumentacja Projektu Minigiełdy Walutowej
+# Mini Currency Exchange
 
-## Autor:
+A web application that simulates a currency exchange platform where users can trade different currencies by creating and fulfilling exchange offers.
+
+## Features
+
+- **User Authentication**: Register, login, and logout functionality
+- **Portfolio Management**: View your currency holdings and transaction history
+- **Live Market**: View and interact with current exchange offers
+- **Trade Execution**: Create new offers or fulfill existing ones
+- **Automatic Matching**: System automatically matches and executes trades when advantageous
+- **Historical Data**: View historical exchange rates through interactive charts
+
+## Tech Stack
+
+### Backend
+
+- Flask 2.2.2 (Python 3.11.9)
+- MongoDB (Database)
+- PyMongo (Database connection)
+- bcrypt (Password hashing)
+- CORS (Cross-Origin Resource Sharing)
+
+### Frontend
+
+- React.js 18.3.1
+- JavaScript ES14
+- Axios (API communication)
+- Chart.js (Data visualization)
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.11+
+- Node.js and npm
+- MongoDB
+
+### Installation
+
+1. Clone the repository
+
+   ```
+   git clone https://github.com/yourusername/mini-currency-exchange.git
+   cd mini-currency-exchange
+   ```
+
+2. Set up the backend
+
+   ```
+   pip install -r requirements.txt
+   cd backend
+   python app.py
+   ```
+
+3. Set up the frontend
+   ```
+   cd frontend
+   npm install
+   npm start
+   ```
+
+### Docker Setup
+
+Alternatively, use Docker Compose to run the application:
+
+```
+docker-compose up
+```
+
+This will start both the Flask application and MongoDB instance.
+
+## Application Structure
+
+### Database Collections
+
+- **users**: User account information
+- **wallets**: User currency holdings
+- **offers**: Active exchange offers
+- **transactions**: Completed transaction history
+
+### API Endpoints
+
+- `/register`: Create a new user account
+- `/login`: Authenticate user and start session
+- `/logout`: End user session
+- `/add_offer`: Create a new exchange offer
+- `/get_offers`: Retrieve all available offers
+- `/cancel_offer/<offer_id>`: Remove an offer and return funds
+- `/make_transaction/<offer_id>`: Execute a transaction based on an offer
+- `/all_transactions`: Get all historical transactions
+- `/my_transactions`: Get transactions for the current user
+- `/wallet`: Get current user's wallet information
+
+## Screenshots
+
+### Login Screen
+
+![Login Screen](photos/logowanie.png)
+
+### Registration
+
+![Registration](photos/rejestracja.png)
+
+### User Portfolio
+
+![Portfolio](photos/portfel.png)
+
+### Exchange Rate Charts
+
+![Charts](photos/kursy.png)
+
+### Market Offers
+
+![Offers](photos/oferty.png)
+
+### Create Offer
+
+![Create Offer](photos/tworzenie.png)
+
+### Home Page
+
+![Home](photos/glowna.png)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Author
 
 - Michał Plaza
 
-## Idea:
+## License
 
-Działanie aplikacji minigiełdy walutowej ma w prosty sposób symulować działanie giełdy papierów wartościowych, której użytkownikami są osoby posiadające we własnym portfelu aktywa i dokonujące transakcji pomiędzy sobą. Nasza aplikacja umożliwia dokonywanie transakcji na podstawie składania / realizacji ofert wymiany aktywów. Podczas dodawania oferty system automatycznie sprawdza, czy nie istnieje już na rynku zbiór ofert odpowiadających jej lub bardziej korzystnych do wymiany i w takim wypadku automatycznie podejmuje transakcje i środki zostają przetransferowane pomiędzy użytkownikami. Aplikacja umożliwia również śledzenie historii własnych transakcji oraz daje informacje o historycznych kursach, na jakich były podejmowane wymiany między walutami w postaci wykresów (zdjęcia zamieszczono poniżej).
-
-## Technologie:
-
-Nasza aplikacja została wykonana przy użyciu technologii backendu Flask 2.2.2 w języku Python 3.11.9. Do baz danych użyliśmy MongoDB, które do działania uruchomiliśmy lokalnie przez aplikację Mongo Compass GUI oraz napisaliśmy prosty interfejs graficzny aplikacji w języku Javascript ES14 przy zastosowaniu technologii React JS 18.3.1. Zostało to połączone przez REST API.
-
-### Charakteryzacja zastosowanych możliwości technologii:
-
-**Flask:**
-
-- Stworzenie endpointów pobierających i udostępniających dane do wykorzystania na frontendzie oraz zapisujących dane do bazy
-- Haszowanie hasła
-- Połączenie z bazą danych z użyciem biblioteki PyMongo
-- Przechowywanie informacji o aktualnej sesji zalogowanego użytkownika
-- Połączenie backendu z frontendem (możliwość działania backendu i frontendu na różnych domenach) przy użyciu biblioteki CORS
-
-**React:**
-
-- Rysowanie wykresów za pomocą `charts.js/auto`
-- Komunikacja z backendem przy pomocy `Axios`
-
-**MongoDB:**
-
-- Elastyczne zapytania bazodanowe
-
-## Ekrany:
-
-Nasza aplikacja składa się z ekranów:
-
-**Logowania:**
-
-- Umożliwia zalogowanie się z utworzonego konta.
-
-![Logowanie](photos/logowanie.png)
-
-**Rejestracji:**
-
-- Umożliwia rejestrację użytkownika o nowym adresie email.
-
-![Rejestracja](photos/rejestracja.png)
-
-**Portfela użytkownika:**
-
-- Wyświetlenie stanu konta i historii dokonanych transakcji.
-
-![Portfel](photos/portfel.png)
-
-**Wykresów historycznych kursów:**
-
-- Możliwość sprawdzania historii kursów danych walut na wykresie w przystępny sposób.
-
-![Kursy](photos/kursy.png)
-
-**Obecnych ofert na rynku:**
-
-- Możliwość przeglądania istniejących ofert, realizacji danych ofert i usuwania własnych ofert.
-
-![Oferty](photos/oferty.png)
-
-**Tworzenia oferty:**
-
-- Umożliwia tworzenie nowej oferty wymiany dwóch walut przez użytkownika.
-
-![Tworzenie](photos/tworzenie.png)
-
-**Strony głównej ☺:**
-
-![Glowna](photos/glowna.png)
-
-## Struktura bazy danych:
-
-**Kolekcja offers:**
-
-- Przechowuje oferty wymiany walut.
-  ![Offers](photos/offers.png)
-
-**Kolekcja register (użytkownicy):**
-
-- Przechowuje informacje o użytkownikach.
-  ![Register](photos/register.png)
-
-**Kolekcja transactions:**
-
-- Przechowuje historię dokonanych transakcji.
-  ![Transactions](photos/transactions.png)
-
-**Kolekcja wallets:**
-
-- Przechowuje stan portfeli użytkowników.
-  ![Wallets](photos/wallets.png)
-
-## Zapytania bazodanowe:
-
-W kodzie aplikacji wykonywane są następujące zapytania bazodanowe (ich kody znajdują się w pliku backendu):
-
-- **Rejestracja użytkownika:** dodanie nowego użytkownika do bazy, haszowanie hasła, dodanie nowego portfela zainicjalizowanego na losowe wartości stanu konta dla różnych walut. (`/register`)
-- **Logowanie użytkowników:** weryfikacja hasła i inicjalizacja sesji. (`/login`)
-- **Wylogowanie użytkownika:** usunięcie sesji. (`/logout`)
-- **Dodanie nowej oferty wymiany walut:** dodanie oferty w bazie, zablokowanie środków na koncie użytkownika, sprawdzenie ofert odpowiadających i ewentualne automatyczne dokonanie transakcji i dodanie jej do bazy oraz modyfikacja sald użytkowników. (`/add_offer`)
-- **Pobieranie wszystkich możliwych ofert wymiany.** (`/get_offers`)
-- **Możliwość usunięcia oferty:** zwrot zablokowanych środków (`/cancel_offer/offer_id`)
-- **Realizacja transakcji na podstawie wybranej oferty:** aktualizacja sald użytkowników, dodanie transakcji do historii. (`/make_transaction/offer_id`)
-- **Pobieranie wszystkich transakcji z historii:** umożliwia to następnie rysowanie wykresów kursów walut. (`/all_transactions`)
-- **Pobieranie transakcji zalogowanego użytkownika:** (`/my_transactions`)
-- **Pobieranie salda portfela i historii transakcji zalogowanego użytkownika:** (`/wallet`)
-
-## Przykładowe rozwiązania zastosowane w projekcie:
-
-- Operacja pobierająca historię transakcji z bazy i udostępniająca ją na endpoincie `my_transactions`
-  ![Endpoint](photos/endpoint.png)
-- Przechwytywanie i wykorzystanie danych z bazy na frontendzie
-  ![Frontend](photos/frontend.png)
-- Inicjalizacja połączenia z bazą MongoDB na localhost na porcie 27107
-  ![Mongo](photos/mongo.png)
-- Użytkownicy mają unikalne adresy email, które mogą również służyć do identyfikowania ich
+This project is licensed under the MIT License.
