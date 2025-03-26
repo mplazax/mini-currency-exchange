@@ -1,17 +1,44 @@
+version: "3"
+
 services:
-  app:
+  backend:
     build: .
-    command: python -u app.py
+    restart: always
     ports:
       - "5000:5000"
-    volumes:
-      - .:/app
-    links:
-      - db
-  db:
-    image: mongo:latest
-    hostname: test_mongodb
     environment:
-      - MONGO_INITDB_DATABASE=users
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=pass
+      - MONGO_URI=mongodb://mongo:27017
+      - MONGO_DB=total_records
+      - FLASK_ENV=production
+      - SECRET_KEY=your_production_secret_key_here
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
